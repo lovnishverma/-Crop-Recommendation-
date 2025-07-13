@@ -110,14 +110,8 @@ http://127.0.0.1:5000/
 
 ## 📷 UI Preview
 
-**Homepage:**
 
-* Accuracy stats
-* Input form for prediction
-
-**Prediction Result:**
-
-* Displays recommended crop.
+<img width="1918" height="1016" alt="image" src="https://github.com/user-attachments/assets/bfb44cb7-4c8e-4089-972a-339b95892c05" />
 
 ---
 

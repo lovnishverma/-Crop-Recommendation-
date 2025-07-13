@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation System</title>
+</head>
+<body>
+    <h1>Crop Recommendation System</h1>
+
+    <h2>Model Accuracy:</h2>
+    <ul>
+        <li>Training Accuracy: {{ train_acc }}</li>
+        <li>Validation Accuracy: {{ val_acc }}</li>
+        <li>Test Accuracy: {{ test_acc }}</li>
+    </ul>
+
+    <h2>Input Crop Parameters:</h2>
+    <form method="post" action="/predict">
+        N: <input type="number" name="n" step="any" required><br>
+        P: <input type="number" name="p" step="any" required><br>
+        K: <input type="number" name="k" step="any" required><br>
+        Temperature: <input type="number" name="temperature" step="any" required><br>
+        Humidity: <input type="number" name="humidity" step="any" required><br>
+        pH: <input type="number" name="ph" step="any" required><br>
+        Rainfall: <input type="number" name="rainfall" step="any" required><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if data %}
+        <h2>Recommended Crop: {{ data }}</h2>
+    {% endif %}
+</body>
+</html>

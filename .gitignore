@@ -72,7 +72,6 @@ dmypy.json
 .prof
 
 # CSV or output files (if not needed in repo)
-*.csv
 *.tsv
 *.xlsx
 
@@ -85,4 +84,4 @@ dmypy.json
 *.onnx
 
 # Exclude dataset if large and reproducible
-Crop_recommendation.csv
+Crop_recommendationsdfsd.csv

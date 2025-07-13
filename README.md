@@ -15,10 +15,15 @@ To recommend the best crop for cultivation based on soil and environmental condi
 ## 🚀 Features
 
 ✅ Clean and user-friendly UI (HTML form)
+
 ✅ Logistic Regression-based classification
+
 ✅ Data scaling using `StandardScaler`
+
 ✅ Label encoding for multi-class targets
+
 ✅ Performance metrics displayed (Train / Validation / Test Accuracy)
+
 ✅ Easily deployable via any Flask-supported server
 
 ---
@@ -119,107 +124,5 @@ http://127.0.0.1:5000/
 ## 📜 License
 
 This project is licensed under the **MIT License**.
-
----
-
----
-
-## 🖥️ `index.html` (with basic CSS)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Crop Recommendation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #eaf4f4;
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-            color: #2e7d32;
-        }
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input {
-            width: 100%;
-            padding: 7px;
-            margin-top: 5px;
-        }
-        .submit-btn {
-            margin-top: 20px;
-            padding: 10px;
-            width: 100%;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
-        .accuracy, .result {
-            background-color: #dcedc8;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Crop Recommendation System</h1>
-    <div class="accuracy">
-        <p><b>Training Accuracy:</b> {{ train_acc }}</p>
-        <p><b>Validation Accuracy:</b> {{ val_acc }}</p>
-        <p><b>Test Accuracy:</b> {{ test_acc }}</p>
-    </div>
-
-    <form method="POST" action="/predict">
-        <label>Nitrogen (N):</label>
-        <input type="number" step="any" name="n" required>
-
-        <label>Phosphorous (P):</label>
-        <input type="number" step="any" name="p" required>
-
-        <label>Potassium (K):</label>
-        <input type="number" step="any" name="k" required>
-
-        <label>Temperature (°C):</label>
-        <input type="number" step="any" name="temperature" required>
-
-        <label>Humidity (%):</label>
-        <input type="number" step="any" name="humidity" required>
-
-        <label>pH Level:</label>
-        <input type="number" step="any" name="ph" required>
-
-        <label>Rainfall (mm):</label>
-        <input type="number" step="any" name="rainfall" required>
-
-        <button class="submit-btn" type="submit">Predict Crop</button>
-    </form>
-
-    {% if data %}
-    <div class="result">
-        <h3>Recommended Crop:</h3>
-        <p>{{ data }}</p>
-    </div>
-    {% endif %}
-</body>
-</html>
-```
 
 ---

@@ -1,32 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Crop Recommendation System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+        }
+
+        h2 {
+            color: #388e3c;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: #555;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #388e3c;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Crop Recommendation System</h1>
 
-    <h2>Model Accuracy:</h2>
-    <ul>
-        <li>Training Accuracy: {{ train_acc }}</li>
-        <li>Validation Accuracy: {{ val_acc }}</li>
-        <li>Test Accuracy: {{ test_acc }}</li>
-    </ul>
+    <div class="container">
+        <h1>Crop Recommendation System</h1>
 
-    <h2>Input Crop Parameters:</h2>
-    <form method="post" action="/predict">
-        N: <input type="number" name="n" step="any" required><br>
-        P: <input type="number" name="p" step="any" required><br>
-        K: <input type="number" name="k" step="any" required><br>
-        Temperature: <input type="number" name="temperature" step="any" required><br>
-        Humidity: <input type="number" name="humidity" step="any" required><br>
-        pH: <input type="number" name="ph" step="any" required><br>
-        Rainfall: <input type="number" name="rainfall" step="any" required><br>
-        <button type="submit">Predict</button>
-    </form>
+        <h2>Model Accuracy:</h2>
+        <ul>
+            <li>Training Accuracy: {{ train_acc }}</li>
+            <li>Validation Accuracy: {{ val_acc }}</li>
+            <li>Test Accuracy: {{ test_acc }}</li>
+        </ul>
 
-    {% if data %}
-        <h2>Recommended Crop: {{ data }}</h2>
-    {% endif %}
+        <h2>Input Crop Parameters:</h2>
+        <form method="post" action="/predict">
+            <label for="n">Nitrogen (N):</label>
+            <input type="number" name="n" step="any" required>
+
+            <label for="p">Phosphorous (P):</label>
+            <input type="number" name="p" step="any" required>
+
+            <label for="k">Potassium (K):</label>
+            <input type="number" name="k" step="any" required>
+
+            <label for="temperature">Temperature (°C):</label>
+            <input type="number" name="temperature" step="any" required>
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="number" name="humidity" step="any" required>
+
+            <label for="ph">pH Level:</label>
+            <input type="number" name="ph" step="any" required>
+
+            <label for="rainfall">Rainfall (mm):</label>
+            <input type="number" name="rainfall" step="any" required>
+
+            <button class="button" type="submit">Predict Crop</button>
+        </form>
+
+        {% if data %}
+        <div class="result">
+            Recommended Crop: {{ data }}
+        </div>
+        {% endif %}
+    </div>
+
 </body>
 </html>
